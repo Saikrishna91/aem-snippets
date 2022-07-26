@@ -131,6 +131,10 @@ Import-Package: javax.annotation;version=0.0.0,*
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.util.tracker</artifactId>
         </dependency>
+        <dependency>
+			 <groupId>net.sf.ehcache</groupId>
+			 <artifactId>ehcache</artifactId>
+		</dependency>
         <!-- Other Dependencies -->
         <dependency>
             <groupId>org.slf4j</groupId>

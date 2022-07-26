@@ -19,7 +19,7 @@ $('.normalSearch').click(function(e) {
 	var searchText = $('.searchText').val();
 	if (searchText !== '' || searchText !== undefined) {
 		$.ajax({
-			url: "/content/eurail/configuration/requests/searchMovieTrailer",
+			url: "/content/eurail/configuration/submission/searchMovieTrailer",
 			method: "GET",
 			data: {
 				"isNormalSearch": true,
@@ -89,7 +89,7 @@ $('.advancedSearch').click(function(e) {
 	}
 	if (advancedSearchParameter !== "") {
 		$.ajax({
-			url: "/content/eurail/configuration/requests/searchMovieTrailer",
+			url: "/content/eurail/configuration/submission/searchMovieTrailer",
 			method: "GET",
 			data: {
 				"isNormalSearch": false,
@@ -125,7 +125,7 @@ function initCustomEvents() {
 		e.preventDefault();
 		var attrValue = $(this).attr("alt");
 		$.ajax({
-			url: "/content/deptagency/configuration/requests/searchMovieTrailer",
+			url: "/content/deptagency/configuration/submission/searchMovieTrailer",
 			method: "GET",
 			data: {
 				"isNormalSearch": false,
