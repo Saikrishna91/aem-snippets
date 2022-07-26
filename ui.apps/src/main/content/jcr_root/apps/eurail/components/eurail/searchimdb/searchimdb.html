@@ -1,0 +1,81 @@
+<!-- Search Component Title -->
+<h2 data-sly-test="${properties.sectionTitle}">${properties.sectionTitle}</h2>
+
+
+<!-- Normal Search Container -->
+<button data-sly-test="${properties.normalSearchText}" class="accordion">${properties.normalSearchText}</button>
+<div class="panel">
+   <p data-sly-test="${properties.normalSearchContainerDescription}">${properties.normalSearchContainerDescription}</p>
+   <form style="margin: auto;">
+      <input class="searchText" name="searchText" type="text" placeholder="Enter the text for Search.." />
+      <button class="normalSearch" type="submit">${properties.normalSearchText}</button>
+   </form>
+</div>
+
+
+<!-- Advanced Search Container -->
+<sly data-sly-use.searchModel="${'com.eurail.aem.core.models.AdvancedSearchModel'}"></sly>
+<button data-sly-test="${properties.advancedSearchText}" class="accordion">${properties.advancedSearchText}</button>
+<div class="panel">
+   <p data-sly-test="${properties.advancedSearchContainerDescription}">${properties.advancedSearchContainerDescription}</p>
+   <form id="advancedSearchForm" style="margin: auto;">
+      <label for="title">Title</label> 
+      <input class="advancedSearchText" type="text" id="title" name="title" placeholder="Enter title to search">
+      <sly data-sly-list.rowItem="${searchModel.rowList}">
+         <div>
+            <h4>${rowItem.title}</h4>
+            <div class="row-checkbox">
+               <sly data-sly-list.columnItem="${rowItem.columnCheckboxList}">
+                  <div data-sly-test="${columnItemList.index <= 4}" class="col md-6">
+                     <div class="column">
+                        <input class="form-check-input" name="${columnItem.name}" type="checkbox" id="${columnItem.id}"> 
+                        <label for="checkbox">${columnItem.label}</label>
+                     </div>
+                  </div>
+                  <div data-sly-test="${columnItemList.index > 4}" class="col md-6">
+                     <div class="column">
+                        <input class="form-check-input" name="${columnItem.name}" type="checkbox" id="${columnItem.id}"> 
+                        <label for="checkbox">${columnItem.label}</label>
+                     </div>
+                  </div>
+               </sly>
+            </div>
+         </div>
+      </sly>
+      <br><br>
+      <button class="advancedSearch" type="submit">${properties.normalSearchText}</button>
+   </form>
+</div>
+
+
+<!-- Movie card Container -->
+<br><br>
+<div class="movie-card-container"></div>
+
+
+<!-- Video Player Container -->
+<br><br>
+<div class="video-container"></div>
+
+
+<!-- Contact US Container -->
+<br><br>
+<div class="contactus-container">
+     <h3>${properties.contactUsHeading}</h3>
+     <div class="search">
+        <form>
+           <label data-sly-test="${properties.firstNameLabel}">
+           <strong>${properties.firstNameLabel}</strong></label>
+           <input data-sly-test="${properties.firstNameLabel}" type="text" name="${properties.firstNameLabel}" id="${properties.firstNameLabel}" required><br>
+           <label data-sly-test="${properties.lastNameLabel}">
+           <strong>${properties.lastNameLabel}</strong></label>
+           <input data-sly-test="${properties.lastNameLabel}" type="text" name="${properties.lastNameLabel}" id="${properties.lastNameLabel}" required><br>
+           <label data-sly-test="${properties.emailLabel}">
+           <strong>${properties.emailLabel}</strong></label>
+           <input data-sly-test="${properties.emailLabel}"type="email" name="${properties.emailLabel}" id="${properties.emailLabel}" required><br>
+           <label data-sly-test="${properties.commentLabel}"><strong>${properties.commentLabel}</strong></label>
+           <textarea data-sly-test="${properties.commentLabel}" id="${properties.commentLabel}" name="${properties.commentLabel}" rows="4" cols="50"></textarea><br>
+           <button data-sly-test="${properties.submitLabel}" class="btn btn-primary normalSearch">${properties.submitLabel}</button>
+        </form>
+     </div>
+</div>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2022-07-26T11:59:39.311+05:30"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/eurail/settings/wcm/templates/spa-page-template"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Eurail Project Home Page"
+        sling:resourceType="eurail/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <responsivegrid
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid">
+                <searchimdb
+                    jcr:created="{Date}2022-07-26T10:45:56.353+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2022-07-26T11:59:39.298+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="eurail/components/eurail/searchimdb"
+                    advancedSearchContainerDescription="Select the options to search Effectively"
+                    advancedSearchText="Advanced Search"
+                    commentLabel="Comments"
+                    contactUsHeading="Contact Us"
+                    emailLabel="Email"
+                    firstNameLabel="FirstName"
+                    lastNameLabel="LastName"
+                    normalSearchContainerDescription="Enter the search text and hit search button. Page scrolls to bottom with Search Image carousel. Click on the image to see the related trailers or movies video from YouTube service. "
+                    normalSearchText="Search"
+                    sectionTitle="Video IMDB Search"
+                    submitLabel="Submit">
+                    <accordions jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            title="Title Type">
+                            <list jcr:primaryType="nt:unstructured">
+                                <item0
+                                    jcr:primaryType="nt:unstructured"
+                                    id="feature"
+                                    label="Feature"
+                                    name="title_type_feature"/>
+                                <item1
+                                    jcr:primaryType="nt:unstructured"
+                                    id="tv_movie"
+                                    label="Tv Movie"
+                                    name="title_type_tv"/>
+                                <item2
+                                    jcr:primaryType="nt:unstructured"
+                                    id="tv_series"
+                                    label="Tv Series"
+                                    name="title_type_series"/>
+                                <item3
+                                    jcr:primaryType="nt:unstructured"
+                                    id="tv_episode"
+                                    label="Tv Episode"
+                                    name="title_type_eposide"/>
+                                <item4
+                                    jcr:primaryType="nt:unstructured"
+                                    id="tv_special"
+                                    label="Tv Special"
+                                    name="title_type_special"/>
+                                <item5
+                                    jcr:primaryType="nt:unstructured"
+                                    id="tv_miniseries"
+                                    label="Tv MiniSeries"
+                                    name="title_type_miniseries"/>
+                                <item6
+                                    jcr:primaryType="nt:unstructured"
+                                    id="short"
+                                    label="Short"
+                                    name="title_type_short"/>
+                                <item7
+                                    jcr:primaryType="nt:unstructured"
+                                    id="video"
+                                    label="Video"
+                                    name="title_type_video"/>
+                                <item8
+                                    jcr:primaryType="nt:unstructured"
+                                    id="tv_short"
+                                    label="Tv Short"
+                                    name="title_type_short"/>
+                                <item9
+                                    jcr:primaryType="nt:unstructured"
+                                    id="podcast_episode"
+                                    label="Podcast Series"
+                                    name="title_type_podcast"/>
+                            </list>
+                        </item0>
+                        <item1
+                            jcr:primaryType="nt:unstructured"
+                            title="Genres">
+                            <list jcr:primaryType="nt:unstructured">
+                                <item0
+                                    jcr:primaryType="nt:unstructured"
+                                    id="action"
+                                    label="Action"
+                                    name="genres_action"/>
+                                <item1
+                                    jcr:primaryType="nt:unstructured"
+                                    id="adventure"
+                                    label="Adventure"
+                                    name="genres_adventure"/>
+                                <item2
+                                    jcr:primaryType="nt:unstructured"
+                                    id="comedy"
+                                    label="Comedy"
+                                    name="genres_comedy"/>
+                                <item3
+                                    jcr:primaryType="nt:unstructured"
+                                    id="crime"
+                                    label="Crime"
+                                    name="genres_crime"/>
+                                <item4
+                                    jcr:primaryType="nt:unstructured"
+                                    id="family"
+                                    label="Family"
+                                    name="genres_family"/>
+                                <item5
+                                    jcr:primaryType="nt:unstructured"
+                                    id="fantasy"
+                                    label="Fantasy"
+                                    name="genres_fantasy"/>
+                                <item6
+                                    jcr:primaryType="nt:unstructured"
+                                    id="history"
+                                    label="History"
+                                    name="genres_history"/>
+                                <item7
+                                    jcr:primaryType="nt:unstructured"
+                                    id="mystery"
+                                    label="Mystery"
+                                    name="genres_mystery"/>
+                                <item8
+                                    jcr:primaryType="nt:unstructured"
+                                    id="scientific"
+                                    label="Scientific"
+                                    name="genres_scientific"/>
+                                <item9
+                                    jcr:primaryType="nt:unstructured"
+                                    id="war"
+                                    label="War"
+                                    name="genres_war"/>
+                            </list>
+                        </item1>
+                    </accordions>
+                </searchimdb>
+            </responsivegrid>
+        </root>
+    </jcr:content>
+</jcr:root>
