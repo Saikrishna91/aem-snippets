@@ -135,9 +135,9 @@ public class IMDBSearchServiceImpl implements IMDBSearchService {
 		if(!ehCacheService.getTimeToLiveSeconds().isEmpty()) {
 			cacheProps.setTimeToLiveSeconds(Integer.parseInt(ehCacheService.getTimeToLiveSeconds()));
 		}
-		cacheProps.setCacheName(searchKeyword);
 		searchKeyword = searchKeyword.replaceAll(" ", "_");
-		JSONObject result = ehCacheService.getObjFromCache(cacheProps, searchKeyword.toLowerCase());
+		cacheProps.setCacheName(searchKeyword.toLowerCase());
+		JSONObject result = ehCacheService.getObjFromCache(cacheProps, searchKeyword);
 		if(result != null) {
 			resultJSON = result.toString();
 		}
