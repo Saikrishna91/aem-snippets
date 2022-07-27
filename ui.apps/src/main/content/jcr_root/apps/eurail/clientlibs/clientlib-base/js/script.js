@@ -125,7 +125,7 @@ function initCustomEvents() {
 		e.preventDefault();
 		var attrValue = $(this).attr("alt");
 		$.ajax({
-			url: "/content/deptagency/configuration/submission/searchMovieTrailer",
+			url: "/content/eurail/configuration/submission/searchMovieTrailer",
 			method: "GET",
 			data: {
 				"isNormalSearch": false,

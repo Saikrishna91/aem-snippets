@@ -2,11 +2,11 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:template="/conf/deptagency/settings/wcm/templates/spa-page-template"
+        cq:template="/conf/eurail/settings/wcm/templates/spa-page-template"
         jcr:isCheckedOut="{Boolean}true"
         jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
-        jcr:uuid="b5b865ca-05a6-4b4d-be87-deaba6e3a766"
-        sling:resourceType="deptagency/components/page"/>
-    <requests/>
+        jcr:uuid="1d12c20c-4523-450d-aa20-3ff1f1b81e79"
+        sling:resourceType="eurail/components/page"/>
+    <submission/>
 </jcr:root>

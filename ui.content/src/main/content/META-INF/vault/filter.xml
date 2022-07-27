@@ -3,5 +3,6 @@
     <filter root="/conf/eurail" mode="merge"/>
     <filter root="/content/eurail" mode="merge"/>
     <filter root="/content/dam/eurail" mode="merge"/>
+	<filter root="/content/dam/spa" mode="merge"/>
     <filter root="/content/experience-fragments/eurail" mode="merge"/>
 </workspaceFilter>
