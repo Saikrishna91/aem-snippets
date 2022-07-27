@@ -43,6 +43,7 @@ public class IMDBSearchServiceImpl implements IMDBSearchService {
 		this.config = config;
 	}
 
+	/* IMDBAPI URL configuration */
 	@Override
 	public String getSearchAPIUrl() {
 		return config.searchAPIUrl();
@@ -58,10 +59,16 @@ public class IMDBSearchServiceImpl implements IMDBSearchService {
 		return config.youtubeAPIUrl();
 	}
 
+	/* IMDBAPI Key */
 	@Override
 	public String getSearchAPIKey() {
 		return config.searchAPIKey();
 	}
+	
+	/*
+	 * Enable this configuration check box to cache the JSON Results in File
+	 * Disable to cache the JSON Results in Memory
+	 */
 	
 	@Override
 	public boolean isFileBasedCacheEnabled() {
@@ -74,15 +81,15 @@ public class IMDBSearchServiceImpl implements IMDBSearchService {
 		JSONObject responseObj = new JSONObject();
 		try {
 			HttpURLConnection connection = null;
-			//Generate Connection URL for NormalSearch Flow:
+			/* Generate Connection URL for NormalSearch Flow: */
 			if (normalSearch && findIMDBId && imdbVideoID == null) {
 				connection = (HttpURLConnection) new URL(config.searchAPIUrl() + config.searchAPIKey() + "/" + searchKeyword).openConnection();
 			}
-			//Generate Connection URL for AdvancedSearch Flow:
+			/*Generate Connection URL for AdvancedSearch Flow:*/
 			if (!normalSearch && findIMDBId && imdbVideoID == null) {
 				connection = (HttpURLConnection) new URL(config.advancedSearchAPIUrl() + config.searchAPIKey() + "?" + searchKeyword).openConnection();
 			}
-			//Generate Connection URL to Video URL:
+			/*Generate Connection URL to Video URL:*/
 			if(imdbVideoID != null) {
 				connection = (HttpURLConnection) new URL(config.youtubeAPIUrl() + config.searchAPIKey() + "/" + imdbVideoID).openConnection();
 			}
@@ -112,6 +119,12 @@ public class IMDBSearchServiceImpl implements IMDBSearchService {
 		return responseObj.toString();
 	}
 	
+	/* Two cache techniques has been taken and implemented 
+	 * Approach 1 - FileBased Cache on Distributed System
+	 * Approach 2 - MemoryBased Cache on Distributed System
+	 * More information about these approaches has been highlighted in the technical design document.
+	 * */
+	
 	@Override
 	public String getCachedResultsFromFile(String imdbVideoID, String searchKeyword, ResourceResolver resourceResolver) {
 		if(config.fileBasedCache()) {
@@ -123,6 +136,11 @@ public class IMDBSearchServiceImpl implements IMDBSearchService {
 		return "";
 	}
 	
+	/*
+	 * EhCache is used to cache the JSON in Memory. Cache refreshing, flushing
+	 * configuration are introduced for managing time for cache need to be in hold
+	 * Time for cache needs to be flushed
+	 */
 	public String getCachedResultsFromMemory(String searchKeyword) {
 		String resultJSON = "";
 		CacheProps cacheProps = new CacheProps();
@@ -144,6 +162,12 @@ public class IMDBSearchServiceImpl implements IMDBSearchService {
 		return resultJSON;
 	}
 	
+	/*
+	 * JSONResults are stored as File in an distributed system such as S3 or CDN.
+	 * Even though this implementation does not have connection to S3 since few API
+	 * credentials cannot be exposed to outside AZ Network. Hence file is stored in AEM
+	 * DAM and simulated the flow for reading the file from S3 or from CDN.
+	 */
 	public String getCachedResults(String searchKeyword, ResourceResolver resourceResolver) {
 		String resultJSON = "";
 		try {

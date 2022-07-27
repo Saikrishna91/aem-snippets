@@ -37,10 +37,12 @@ public class EhCacheServiceImpl implements EhCacheService {
 		return config.timeToLive();
 	}
 	
+	/* Setting the JSONResults in MemoryCache as key-value pairs */
 	public void putObjToCache(CacheProps cacheProps, String cacheIdentifier, JSONObject resultsJSON) {
 		CacheFactoryInstance.getInstance().add(setCacheProps(cacheProps), cacheIdentifier, resultsJSON);
 	}
 	
+	/* Getting JSONResults from MemoryCache as key-value pairs */
 	public JSONObject getObjFromCache(CacheProps cacheProps, String cacheIdentifier) {
 		JSONObject jsonObject = null;
 		Object object = CacheFactoryInstance.getInstance().get(setCacheProps(cacheProps), cacheIdentifier);

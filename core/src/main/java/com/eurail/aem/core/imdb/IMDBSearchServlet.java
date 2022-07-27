@@ -32,12 +32,12 @@ public class IMDBSearchServlet extends SlingAllMethodsServlet {
 	@Reference
 	private transient IMDBSearchService imdbSearchService;
 	
-	//Two Different Search Options are available in AEM Page
-	//RequestParameter 1 - isNormalSearch: Should be sent either as true for normalSearch Flow and false for AdvancedSearch Flow. 
-	//RequestParameter 2 - findIMDBID: Should be sent as true to get IMDBId for both normal and advancedSearch Flow.
-	//RequestParameter 3 - searchKeyword: Contains a single searchKeyword or as queryParameter string. singleSearchKeyword is used for NormalSearch.
-	//and queryParameter String is used for advancedSearch.
-	//RequestParameter 4 - imdbVideoID: IMDBID should be passed to get the Video URL from YouTube. 
+	/* Two Search Options are available in the AEM Page 
+	 * requestParameter 1 - isNormalSearch: Should be sent as true for normalSearch Flow and false for AdvancedSearch Flow.
+	 * requestParameter 2 - findIMDBID: Should be sent as true to get IMDBId for both normal and advancedSearch Flow.
+	 * requestParameter 3 - searchKeyword: Contains a single searchKeyword like "KungFu Panda" or as queryParameter string. 
+	 * requestParameter 4 - imdbVideoID: IMDBID should be passed to get the Video URL from YouTube.
+	 * */
 	
 	@Override
     public void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response) throws IOException {
@@ -62,10 +62,12 @@ public class IMDBSearchServlet extends SlingAllMethodsServlet {
 		}
 	}
 
+	/* Getter Method for JUnit Test case */
 	public IMDBSearchService getImdbSearchService() {
 		return imdbSearchService;
 	}
 
+	/* Setter Method for JUnit Test case */
 	public void setImdbSearchService(IMDBSearchService imdbSearchService) {
 		this.imdbSearchService = imdbSearchService;
 	}
